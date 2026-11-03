@@ -193,7 +193,7 @@
       <div class="bar-l"><span id="rPct">0%</span><span>of ${nf.format(C.collectionSize)} NFTs</span></div>
       <div class="fdv">
         <div class="fdv-h"><span class="k">If $FUNGO launched at an FDV of…</span><span class="guess">guess · no market price yet</span></div>
-        <div class="chips" id="chips" role="group" aria-label="Imagined FDV">${C.fdvScenarios.map((v) => `<button type="button" class="chip" data-v="${v}">${fdvLabel(v)}</button>`).join('')}</div>
+        <div class="chips" id="chips" role="group" aria-label="Imagined FDV">${C.fdvScenarios.map((v) => `<button type="button" class="chip" data-v="${v}">${fdvLabel(v)}${v === 25.1e6 ? ' <em>expected TGE</em>' : ''}</button>`).join('')}</div>
         <input class="slider" id="slider" type="range" min="0" max="100" step="0.1" aria-label="Custom FDV">
         <div class="val"><div class="num acc" id="rUsd">$0</div><small id="rNote"></small></div>
       </div></div>`;
@@ -208,7 +208,7 @@
       fdv = f;
       const price = f / C.totalSupply, val = tokens * price;
       tween(usdEl, val, { from: usdEl._val || 0, dur: animate ? 600 : 1500, fmt: usd });
-      $('#rNote').textContent = `at ${fdvLabel(f)} FDV, 1 $FUNGO = $${price < 0.01 ? price.toFixed(5) : price.toFixed(4)}`;
+      $('#rNote').textContent = `at ${fdvLabel(f)} FDV${Math.abs(f / 25.1e6 - 1) < 0.001 ? ' (expected TGE, not official)' : ''}, 1 $FUNGO = $${price < 0.01 ? price.toFixed(5) : price.toFixed(4)}`;
       document.querySelectorAll('.chip').forEach((c) => c.classList.toggle('on', Math.abs(+c.dataset.v / f - 1) < 0.02));
     }
     slider.value = toSlider(fdv);

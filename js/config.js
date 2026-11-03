@@ -11,8 +11,10 @@ window.CHECKER_CONFIG = {
   perNft: 140112,
   claimDays: 7,
   // FDV scenarios are GUESSES: $FUNGO has no market price yet.
-  fdvScenarios: [5e6, 10e6, 25e6, 50e6, 100e6],
-  fdvDefault: 10e6,
+  // 25.1M = 10B supply x $0.00251 expected TGE price (community-supplied, NOT official)
+  expectedTgePrice: 0.00251,
+  fdvScenarios: [5e6, 10e6, 25.1e6, 50e6, 100e6],
+  fdvDefault: 25.1e6,
   // Public RPCs, raced in parallel; first good answer wins.
   rpcs: [
     'https://ethereum-rpc.publicnode.com',

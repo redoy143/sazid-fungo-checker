@@ -45,6 +45,10 @@
 
 <main>
   <section class="hero">
+    <div class="ticker reveal" id="ticker" role="group" aria-label="Fungo news">
+      <div class="tk-line is-on" data-tk><span class="tk-dot" aria-hidden="true"></span><span class="tk-txt">Expected $FUNGO TGE price: <b>$0.00251</b></span><span class="tk-tag">expected</span></div>
+      <div class="tk-line" data-tk><span class="tk-dot" aria-hidden="true"></span><span class="tk-txt">Fungo Genesis NFT will sell via <b>auction</b></span></div>
+    </div>
     <p class="eyebrow reveal">Zama OG NFT · $FUNGO airdrop · by Sazid</p>
     <h1 class="reveal">How much <span class="grad">$FUNGO</span><br>is your Zama OG worth?</h1>
     <p class="lead reveal">Paste a wallet address or ENS name. We read the chain, count your Zama OG NFTs and show your share of the 700M $FUNGO holder pool. Read-only. Nothing to connect.</p>
@@ -126,13 +130,14 @@
 </main>
 
 <footer>
-  <p class="disc"><b>Unofficial community tool, not affiliated with FungoLabs or Zama.</b> Figures are estimates for fun, not financial advice. $FUNGO has no market price yet; every dollar value here is a guess based on an imagined FDV.</p>
+  <p class="disc"><b>Unofficial community tool, not affiliated with FungoLabs or Zama.</b> Figures are estimates for fun, not financial advice. $FUNGO has no market price yet; every dollar value here is a guess based on an imagined FDV. The $0.00251 expected TGE price is a community-supplied figure, not official.</p>
   <p class="credit">Built by <b>Sazid</b> · read-only · no cookies · no tracking</p>
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="js/config.js"></script>
 <script src="js/splash.js"></script>
+<script src="js/ticker.js"></script>
 <script src="js/keccak.js"></script>
 <script src="js/app.js"></script>
 </body>
