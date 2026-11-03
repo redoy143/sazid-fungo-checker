@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src https:; base-uri 'none'; form-action 'none'; object-src 'none'">
+<title>Sazid's Zama OG $FUNGO Checker</title>
+<meta name="description" content="Paste a wallet or ENS name and see how much $FUNGO a Zama OG NFT holder may get. Read-only, no wallet connect. Unofficial community tool by Sazid.">
+<meta name="theme-color" content="#0b0b10">
+<meta property="og:title" content="Sazid's Zama OG $FUNGO Checker">
+<meta property="og:description" content="Check your Zama OG NFT share of the $FUNGO airdrop. Read-only, never connects your wallet.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<header class="top">
+  <a class="brand" href="./" aria-label="Sazid's Zama OG $FUNGO Checker">
+    <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="url(#g)"/><path d="M11 12h18l-12 16h12" fill="none" stroke="#14110a" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe45c"/><stop offset="1" stop-color="#ffb000"/></linearGradient></defs></svg>
+    <span class="brand-text"><b>Sazid's</b> Zama OG <span class="fg">$FUNGO</span> Checker</span>
+  </a>
+  <div class="top-right">
+    <span class="live" id="live" title="Ethereum mainnet"><i></i><span id="liveText">connecting…</span></span>
+    <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle light / dark theme">
+      <svg viewBox="0 0 24 24" class="i-moon"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
+      <svg viewBox="0 0 24 24" class="i-sun"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <p class="eyebrow reveal">Zama OG NFT · $FUNGO airdrop · by Sazid</p>
+    <h1 class="reveal">How much <span class="grad">$FUNGO</span><br>is your Zama OG worth?</h1>
+    <p class="lead reveal">Paste a wallet address or ENS name. We read the chain, count your Zama OG NFTs and show your share of the 700M $FUNGO holder pool. Read-only. Nothing to connect.</p>
+
+    <form class="search reveal" id="form" autocomplete="off" novalidate>
+      <label class="sr" for="addr">Wallet address or ENS name</label>
+      <div class="field" id="field">
+        <svg viewBox="0 0 24 24" class="f-ico" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+        <input id="addr" name="addr" type="text" inputmode="text" spellcheck="false" autocapitalize="off" autocorrect="off" placeholder="0x… or name.eth" aria-describedby="hint">
+        <button type="button" class="ghost" id="pasteBtn">Paste</button>
+        <button type="submit" class="go" id="goBtn"><span class="go-t">Check</span><span class="spin" aria-hidden="true"></span></button>
+      </div>
+      <p class="hint" id="hint" role="status" aria-live="polite">Public wallet address only. We never ask for a seed phrase or a signature.</p>
+      <div class="quick">
+        <button type="button" class="pill" id="sampleBtn">Try a sample holder</button>
+        <span id="recent" class="recent"></span>
+      </div>
+    </form>
+
+    <div class="warn reveal" role="note">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2.5 20h19L12 3z"/><path d="M12 10v4.5M12 17.5v.1"/></svg>
+      <p><b>Scam alert.</b> This site never asks you to connect a wallet, sign anything or share a seed phrase. Anyone who does is a scammer. Claim only on the official FungoLabs link, once they announce it.</p>
+    </div>
+  </section>
+
+  <section class="result-wrap" id="resultWrap" aria-live="polite">
+    <div id="result"></div>
+  </section>
+
+  <section class="stats" id="stats">
+    <div class="stat reveal"><span class="k">Holder pool</span><b data-count="700000000" data-compact="1">700M</b><small>7% of 10B $FUNGO</small></div>
+    <div class="stat reveal"><span class="k">NFTs in collection</span><b data-count="4996">4,996</b><small>Zama OG, Ethereum</small></div>
+    <div class="stat reveal"><span class="k">Per NFT</span><b data-count="140112">140,112</b><small>$FUNGO (700M ÷ 4,996)</small></div>
+    <div class="stat reveal"><span class="k">Claim window</span><b data-count="7" data-suffix=" days">7 days</b><small>then unclaimed is burned</small></div>
+  </section>
+
+  <section class="campaign reveal" id="campaign">
+    <div class="c-head">
+      <div>
+        <p class="eyebrow">Also on FungoLabs</p>
+        <h2>X Campaign <span class="tag">3% · 300M $FUNGO</span></h2>
+      </div>
+      <a class="btn-outline" id="campLink" href="https://fungolabs.org/launchpad/c/cfpdxjt4" target="_blank" rel="noopener noreferrer">Official campaign page ↗</a>
+    </div>
+    <div class="c-grid">
+      <div class="c-card">
+        <span class="k">Campaign closes in</span>
+        <div class="cd" id="countdown" aria-live="off"><div><b id="cdD">--</b><small>days</small></div><div><b id="cdH">--</b><small>hrs</small></div><div><b id="cdM">--</b><small>min</small></div><div><b id="cdS">--</b><small>sec</small></div></div>
+        <small id="cdAbs" class="muted"></small>
+      </div>
+      <div class="c-card note">
+        <span class="k">Rank lookup</span>
+        <p><b>Not available yet.</b> FungoLabs has not published a public leaderboard or ranking API. Their announcement says the leaderboard is revealed after the campaign ends, so this site can't show anyone's rank or points without making numbers up. When a public list appears, a rank tab can be added.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="how">
+    <h2 class="reveal">How it works</h2>
+    <ol class="steps">
+      <li class="reveal"><span class="n">1</span><div><h3>You paste a public address</h3><p>An 0x wallet or an ENS name like <code>name.eth</code>. Nothing is stored on a server, there is no server.</p></div></li>
+      <li class="reveal"><span class="n">2</span><div><h3>We ask Ethereum directly</h3><p>Your browser calls <code>balanceOf</code> on the official Zama OG contract through public RPC nodes. Read-only.</p></div></li>
+      <li class="reveal"><span class="n">3</span><div><h3>We do the maths</h3><p>NFTs × 140,112 $FUNGO. Value chips multiply by a guessed FDV, since there is no market price yet.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="sources reveal">
+    <h2>Sources</h2>
+    <ul>
+      <li><a href="https://x.com/FungoLabs/status/2117217762204676096" target="_blank" rel="noopener noreferrer">FungoLabs tokenomics thread</a></li>
+      <li><a href="https://x.com/FungoLabs/status/2117217770374848865" target="_blank" rel="noopener noreferrer">Zama OG allocation post (7%)</a></li>
+      <li><a href="https://x.com/FungoLabs/status/2117217774665650426" target="_blank" rel="noopener noreferrer">Claim rules (7-day window)</a></li>
+      <li><a href="https://www.zama.org/post/zama-og-nft-claim-portal-is-live" target="_blank" rel="noopener noreferrer">Zama: official contract</a></li>
+      <li><a href="https://etherscan.io/address/0xb3f2ddaed136cf10d5b228ee2eff29b71c7535fc" target="_blank" rel="noopener noreferrer">Contract on Etherscan</a></li>
+      <li><a href="https://fungolabs.org/launchpad/tokenomics" target="_blank" rel="noopener noreferrer">FungoLabs tokenomics page</a></li>
+    </ul>
+    <p class="muted">Snapshot block, claim contract and claim URL are not announced yet. Your count here is your balance right now, and may differ at snapshot.</p>
+  </section>
+</main>
+
+<footer>
+  <p class="disc"><b>Unofficial community tool, not affiliated with FungoLabs or Zama.</b> Figures are estimates for fun, not financial advice. $FUNGO has no market price yet; every dollar value here is a guess based on an imagined FDV.</p>
+  <p class="credit">Built by <b>Sazid</b> · read-only · no cookies · no tracking</p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="js/config.js"></script>
+<script src="js/keccak.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
