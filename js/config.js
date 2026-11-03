@@ -1,6 +1,6 @@
 /* All tunable facts live here, each with its source. Update this file when FungoLabs publishes new details. */
 window.CHECKER_CONFIG = {
-  siteName: "Sazid's Zama OG $FUNGO Checker",
+  siteName: "SazidFungo.checker",
   // Official Zama OG NFT contract (listed on zama.org/post/zama-og-nft-claim-portal-is-live)
   contract: '0xb3f2ddaed136cf10d5b228ee2eff29b71c7535fc',
   // FungoLabs thread: 10B total supply, Zama OG holders get 7%

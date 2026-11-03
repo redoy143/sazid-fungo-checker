@@ -4,22 +4,35 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src https:; base-uri 'none'; form-action 'none'; object-src 'none'">
-<title>Sazid's Zama OG $FUNGO Checker</title>
-<meta name="description" content="Paste a wallet or ENS name and see how much $FUNGO a Zama OG NFT holder may get. Read-only, no wallet connect. Unofficial community tool by Sazid.">
+<title>SazidFungo.checker · Zama OG $FUNGO airdrop checker</title>
+<meta name="description" content="SazidFungo.checker: paste a wallet or ENS name and see how much $FUNGO a Zama OG NFT holder may get. Read-only, no wallet connect. Unofficial community tool by Sazid.">
 <meta name="theme-color" content="#0b0b10">
-<meta property="og:title" content="Sazid's Zama OG $FUNGO Checker">
+<meta property="og:title" content="SazidFungo.checker">
+<meta property="og:site_name" content="SazidFungo.checker">
+<meta property="og:image" content="https://redoy143.github.io/sazidfungo-checker/assets/splash.jpg">
+<meta property="og:url" content="https://redoy143.github.io/sazidfungo-checker/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SazidFungo.checker">
+<meta name="twitter:image" content="https://redoy143.github.io/sazidfungo-checker/assets/splash.jpg">
 <meta property="og:description" content="Check your Zama OG NFT share of the $FUNGO airdrop. Read-only, never connects your wallet.">
 <meta property="og:type" content="website">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script src="js/splash-boot.js"></script>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<div class="splash" id="splash" role="dialog" aria-label="Intro animation">
+  <div class="sp-glow"></div>
+  <div class="sp-stage"></div>
+  <div class="sp-bar"><i></i></div>
+  <button class="sp-skip" id="spSkip" type="button">Skip <span aria-hidden="true">›</span></button>
+</div>
 <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
 
 <header class="top">
-  <a class="brand" href="./" aria-label="Sazid's Zama OG $FUNGO Checker">
+  <a class="brand" href="./" aria-label="SazidFungo.checker">
     <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="url(#g)"/><path d="M11 12h18l-12 16h12" fill="none" stroke="#14110a" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe45c"/><stop offset="1" stop-color="#ffb000"/></linearGradient></defs></svg>
-    <span class="brand-text"><b>Sazid's</b> Zama OG <span class="fg">$FUNGO</span> Checker</span>
+    <span class="brand-text"><b>Sazid</b>Fungo<span class="dot">.checker</span></span>
   </a>
   <div class="top-right">
     <span class="live" id="live" title="Ethereum mainnet"><i></i><span id="liveText">connecting…</span></span>
@@ -119,6 +132,7 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="js/config.js"></script>
+<script src="js/splash.js"></script>
 <script src="js/keccak.js"></script>
 <script src="js/app.js"></script>
 </body>
