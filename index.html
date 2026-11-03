@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src https:; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https:; base-uri 'none'; form-action 'none'; object-src 'none'">
 <title>SazidFungo.checker · Zama OG $FUNGO airdrop checker</title>
 <meta name="description" content="SazidFungo.checker: paste a wallet or ENS name and see how much $FUNGO a Zama OG NFT holder may get. Read-only, no wallet connect. Unofficial community tool by Sazid.">
 <meta name="theme-color" content="#0b0b10">
@@ -101,9 +101,45 @@
       </div>
       <div class="c-card note">
         <span class="k">Rank lookup</span>
-        <p><b>Not available yet.</b> FungoLabs has not published a public leaderboard or ranking API. Their announcement says the leaderboard is revealed after the campaign ends, so this site can't show anyone's rank or points without making numbers up. When a public list appears, a rank tab can be added.</p>
+        <p><b>No official leaderboard yet.</b> FungoLabs reveals the real ranking after the campaign ends. Below you can check an <b>unofficial, sample-based</b> estimate built from public X posts. <a href="#rank">Jump to rank checker ↓</a></p>
       </div>
     </div>
+  </section>
+
+  <section class="rank reveal" id="rank" aria-labelledby="rankH">
+    <div class="c-head">
+      <div>
+        <p class="eyebrow">Unofficial · sample-based</p>
+        <h2 id="rankH">X Campaign rank checker <span class="tag">top 500</span></h2>
+      </div>
+    </div>
+    <p class="rk-lead">Type an X username to see how its latest 5 FUNGO posts score in our snapshot of public posts about FungoLabs. It is a community estimate, <b>not</b> the official ranking: the studio picks the real winners.</p>
+
+    <form class="rk-form" id="rkForm" autocomplete="off" novalidate>
+      <label class="sr" for="rkUser">X username</label>
+      <div class="field" id="rkField">
+        <span class="rk-at" aria-hidden="true">@</span>
+        <input id="rkUser" name="rkUser" type="text" inputmode="text" spellcheck="false" autocapitalize="off" autocorrect="off" maxlength="20" placeholder="username" aria-describedby="rkHint">
+        <button type="submit" class="go" id="rkGo"><span class="go-t">Check rank</span><span class="spin" aria-hidden="true"></span></button>
+      </div>
+      <p class="hint" id="rkHint" role="status" aria-live="polite">Letters, numbers and underscore, up to 15 characters. Case does not matter.</p>
+    </form>
+
+    <div class="rk-result" id="rkResult" aria-live="polite"></div>
+
+    <div class="rk-meta" id="rkMeta">
+      <p class="rk-formula"><span class="k">Formula</span><span id="rkFormula">score = impressions × 0.01 + likes × 1 + replies × 2 + reposts × 3 + quotes × 3, summed over an account's latest 5 FUNGO posts</span></p>
+      <p class="muted" id="rkStats">Loading snapshot…</p>
+    </div>
+
+    <h3 class="rk-h3">Top 10 in this snapshot</h3>
+    <div class="rk-tablewrap">
+      <table class="rk-table" id="rkTable">
+        <thead><tr><th scope="col">#</th><th scope="col">Account</th><th scope="col" class="num-c">Score</th><th scope="col" class="num-c hide-s">Posts</th></tr></thead>
+        <tbody id="rkBody"><tr><td colspan="4" class="muted">Loading…</td></tr></tbody>
+      </table>
+    </div>
+    <p class="rk-note muted">How it is built: public X posts that mention @FungoLabs, fungolabs.org or "Fungo Labs" since the campaign started (2 Nov 2026, 14:00 UTC), original posts only (no retweets or replies). FungoLabs does not publish its participant list, and X does not let anyone search every post, so this is a <b>partial sample</b>. "Not found" only means we did not see that account's posts, not that it is outside the real top 500.</p>
   </section>
 
   <section class="how">
@@ -138,6 +174,7 @@
 <script src="js/config.js"></script>
 <script src="js/splash.js"></script>
 <script src="js/ticker.js"></script>
+<script src="js/rank.js"></script>
 <script src="js/keccak.js"></script>
 <script src="js/app.js"></script>
 </body>

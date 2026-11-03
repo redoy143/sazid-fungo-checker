@@ -258,3 +258,57 @@ html.splash-on .reveal.in{opacity:0;transform:translateY(22px)} /* hold page ent
 @media (max-width:420px){.tk-line{font-size:12.5px;gap:7px;padding:0 10px}.ticker{width:100%}}
 @media (prefers-reduced-motion:reduce){.ticker::after,.tk-dot{animation:none}}
 .chip em{font:700 9px var(--mono);font-style:normal;letter-spacing:.08em;text-transform:uppercase;opacity:.75;margin-left:4px}
+
+/* X campaign rank checker */
+.rank{padding:clamp(20px,4vw,32px);border-radius:24px;background:linear-gradient(135deg,rgba(106,76,255,.1),rgba(255,214,10,.05));border:1px solid var(--card-b);margin-bottom:56px;scroll-margin-top:84px}
+.rk-lead{color:var(--muted);font-size:14.5px;max-width:700px;margin-bottom:18px}
+.rk-lead b,.rk-note b,.c-card.note a{color:var(--text)}
+.c-card.note a{text-decoration-color:var(--acc);text-underline-offset:3px}
+.rk-form{max-width:640px}
+.rk-at{font:700 18px var(--mono);color:var(--muted);flex:none}
+.rk-result{margin-top:18px;scroll-margin-top:90px}
+.rk-result:empty{display:none}
+.rk-card .big{margin:18px 0 14px}
+.rk-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.rk-who{min-width:0}
+.rk-name{display:block;font:700 18px var(--mono);text-decoration:none;color:var(--text);overflow-wrap:anywhere}
+.rk-name:hover{color:var(--acc)}
+.rk-who small{font-size:13px;display:block}
+.rk-posts{list-style:none;display:grid;gap:10px;margin-top:8px}
+.rk-post{padding:14px;border-radius:14px;background:var(--bg2);border:1px solid var(--card-b);transition:transform .25s var(--ease),border-color .2s}
+.rk-post:hover{transform:translateY(-2px);border-color:var(--acc)}
+.rk-ptop{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font:12px var(--mono);color:var(--muted)}
+.rk-pscore{color:var(--acc-ink);background:var(--acc);padding:2px 8px;border-radius:6px;font-weight:700}
+.rk-plink{margin-left:auto;color:var(--text);font-weight:600}
+.rk-plink:hover{color:var(--acc)}
+.rk-ptext{margin:8px 0;font-size:13.5px;overflow-wrap:anywhere}
+.rk-pm{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.pm{text-align:center;padding:6px 2px;border-radius:10px;background:var(--card);border:1px solid var(--card-b)}
+.pm b{display:block;font:700 14px var(--mono);font-variant-numeric:tabular-nums}
+.pm small{font:10.5px var(--mono);color:var(--muted);text-transform:uppercase}
+.rk-meta{margin:22px 0 4px;display:grid;gap:6px;font-size:13.5px}
+.rk-formula{padding:12px 14px;border-radius:12px;background:var(--bg2);border:1px solid var(--card-b);font:12.5px var(--mono);color:var(--text)}
+.rk-formula .k{margin-bottom:2px}
+.rk-h3{font-size:17px;margin:22px 0 10px}
+.rk-tablewrap{overflow-x:auto;border-radius:14px;border:1px solid var(--card-b);background:var(--bg2)}
+.rk-table{width:100%;border-collapse:collapse;font-size:14px}
+.rk-table th{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:10px 14px;border-bottom:1px solid var(--card-b)}
+.rk-table td{padding:10px 14px;border-bottom:1px solid var(--card-b)}
+.rk-table tr:last-child td{border-bottom:0}
+.rk-row{cursor:pointer;transition:background .2s}
+.rk-row:hover{background:var(--card)}
+.rk-pos{font:800 15px var(--mono);color:var(--acc);width:44px}
+.rk-acc a{font:600 14px var(--mono);text-decoration:none}
+.rk-acc a:hover{color:var(--acc)}
+.rk-acc small{display:block;font-size:12px;max-width:34ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.num-c{text-align:right!important;font-variant-numeric:tabular-nums}
+.rk-sc{font:700 14px var(--mono)}
+.rk-note{font-size:12.5px;margin-top:14px}
+@media (max-width:560px){
+  .hide-s{display:none}
+  .rk-pm{grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}
+  .pm b{font-size:12.5px}
+  .pm small{font-size:9px}
+  .rk-plink{margin-left:0}
+  .rank .go{padding:12px 16px}
+}
